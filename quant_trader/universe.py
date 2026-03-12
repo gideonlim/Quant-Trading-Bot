@@ -5,6 +5,7 @@ and filter for liquid, large-cap US equities.
 """
 
 import sys
+import time
 import logging
 import json
 from datetime import datetime, timedelta
@@ -105,8 +106,9 @@ def get_dynamic_universe(
 
         candidates.append(symbol)
 
-    # Cap at 1000 candidates to keep scanning fast
-    MAX_CANDIDATES = 1000
+    # Cap at 300 candidates — enough to cover S&P 500 quality stocks
+    # while keeping the volume scan fast enough for GitHub Actions free tier
+    MAX_CANDIDATES = 500
     if len(candidates) > MAX_CANDIDATES:
         candidates = candidates[:MAX_CANDIDATES]
 
@@ -166,6 +168,9 @@ def get_dynamic_universe(
         except Exception as e:
             logger.debug(f"Failed to fetch volume for batch starting at {i}: {e}")
             continue
+
+        # Pause between batches to respect free-tier rate limits
+        time.sleep(0.5)
 
     sys.stdout.write("\n")
     sys.stdout.flush()

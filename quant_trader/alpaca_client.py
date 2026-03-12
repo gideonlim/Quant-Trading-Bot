@@ -48,7 +48,10 @@ class AlpacaClient:
                     resp.headers.get("x-ratelimit-remaining", 200)
                 )
                 if self._rate_limit_remaining < 5:
-                    sleep_time = max(1, int(resp.headers.get("x-ratelimit-reset", 1)))
+                    # x-ratelimit-reset is a Unix timestamp, not seconds-to-wait
+                    reset_ts = int(resp.headers.get("x-ratelimit-reset", 0))
+                    sleep_time = max(1, reset_ts - int(time.time())) if reset_ts > 0 else 5
+                    sleep_time = min(sleep_time, 60)  # Never sleep more than 60s
                     logger.warning(f"Rate limit low ({self._rate_limit_remaining}), sleeping {sleep_time}s")
                     time.sleep(sleep_time)
 
