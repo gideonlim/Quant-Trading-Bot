@@ -1,0 +1,18 @@
+# API keys — NEVER commit these
+keys.env
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Output files (generated at runtime)
+trade_ledger.csv
+trade_logs/
+universe_cache.json
+current_signals.json
+backtest_equity.png
+backtest_trades.json
+backtest_metrics.json
+data_cache/

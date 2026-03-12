@@ -1,0 +1,89 @@
+name: Daily Trading Bot
+
+on:
+  # Run at 10:00 AM Eastern Time (14:00 UTC) on weekdays
+  schedule:
+    - cron: '0 14 * * 1-5'
+
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Run mode'
+        required: true
+        default: 'trade'
+        type: choice
+        options:
+          - trade
+          - dry-run
+          - signals
+          - status
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pandas numpy matplotlib requests
+
+      - name: Determine run mode
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "mode=${{ github.event.inputs.mode }}" >> $GITHUB_OUTPUT
+          else
+            echo "mode=trade" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run trading bot
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+        run: |
+          MODE="${{ steps.mode.outputs.mode }}"
+          echo "Running in mode: $MODE"
+          echo "================================"
+
+          if [ "$MODE" = "trade" ]; then
+            python -m quant_trader.main trade
+          elif [ "$MODE" = "dry-run" ]; then
+            python -m quant_trader.main trade --dry-run
+          elif [ "$MODE" = "signals" ]; then
+            python -m quant_trader.main signals
+          elif [ "$MODE" = "status" ]; then
+            python -m quant_trader.main status
+          fi
+
+      - name: Upload trade ledger
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trade-ledger-${{ github.run_number }}
+          path: trade_ledger.csv
+          if-no-files-found: ignore
+
+      - name: Upload trade logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trade-logs-${{ github.run_number }}
+          path: trade_logs/
+          if-no-files-found: ignore
+
+      - name: Upload signals
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: signals-${{ github.run_number }}
+          path: current_signals.json
+          if-no-files-found: ignore
