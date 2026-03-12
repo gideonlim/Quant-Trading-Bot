@@ -8,8 +8,8 @@ __pycache__/
 *.pyo
 
 # Output files (generated at runtime)
-trade_ledger.csv
-trade_logs/
+# Note: trade_ledger.csv and trade_logs/ are intentionally tracked
+# so GitHub Actions can commit them back after each run
 universe_cache.json
 current_signals.json
 backtest_equity.png

@@ -23,6 +23,8 @@ jobs:
   trade:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: write   # needed to commit trade_ledger.csv back to repo
 
     steps:
       - name: Checkout code
@@ -64,26 +66,22 @@ jobs:
             python -m quant_trader.main status
           fi
 
-      - name: Upload trade ledger
+      - name: Commit trade ledger back to repo
         if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: trade-ledger-${{ github.run_number }}
-          path: trade_ledger.csv
-          if-no-files-found: ignore
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Upload trade logs
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: trade-logs-${{ github.run_number }}
-          path: trade_logs/
-          if-no-files-found: ignore
+          # Stage ledger and logs if they exist
+          git add trade_ledger.csv 2>/dev/null || true
+          git add trade_logs/ 2>/dev/null || true
+          git add current_signals.json 2>/dev/null || true
 
-      - name: Upload signals
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: signals-${{ github.run_number }}
-          path: current_signals.json
-          if-no-files-found: ignore
+          # Only commit if there are actual changes
+          if git diff --staged --quiet; then
+            echo "No new trade data to commit."
+          else
+            git commit -m "bot: trade cycle $(date +'%Y-%m-%d %H:%M UTC') [${{ steps.mode.outputs.mode }}]"
+            git push
+            echo "Trade data committed to repo."
+          fi
