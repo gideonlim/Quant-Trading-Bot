@@ -22,9 +22,9 @@ on:
 jobs:
   trade:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     permissions:
-      contents: write   # needed to commit trade_ledger.csv back to repo
+      contents: write   # needed to commit trade data back to repo
 
     steps:
       - name: Checkout code
@@ -34,6 +34,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: 'pip'
+
+      - name: Create requirements file for caching
+        run: echo -e "pandas\nnumpy\nmatplotlib\nrequests" > requirements.txt
 
       - name: Install dependencies
         run: pip install pandas numpy matplotlib requests
@@ -47,7 +51,52 @@ jobs:
             echo "mode=trade" >> $GITHUB_OUTPUT
           fi
 
+      - name: Check if market is open today
+        id: market_check
+        if: github.event_name == 'schedule'
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+        run: |
+          python -c "
+          import os, sys, requests, json
+          from datetime import datetime
+
+          key = os.environ.get('ALPACA_API_KEY', '')
+          secret = os.environ.get('ALPACA_SECRET_KEY', '')
+          if not key or not secret:
+              print('No API keys — skipping market check')
+              sys.exit(0)
+
+          headers = {
+              'APCA-API-KEY-ID': key,
+              'APCA-API-SECRET-KEY': secret,
+          }
+          today = datetime.utcnow().strftime('%Y-%m-%d')
+          url = f'https://paper-api.alpaca.markets/v2/calendar?start={today}&end={today}'
+          resp = requests.get(url, headers=headers, timeout=10)
+          resp.raise_for_status()
+          cal = resp.json()
+
+          # Empty list = holiday; also handle date format variants
+          cal_date = str(cal[0].get('date', ''))[:10] if cal else ''
+          if not cal or cal_date != today:
+              reason = 'empty calendar (holiday)' if not cal else f'date mismatch ({cal_date})'
+              print(f'Not a trading day: {reason}')
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                  f.write('skip=true\n')
+              summary_path = os.environ.get('GITHUB_STEP_SUMMARY', '')
+              if summary_path:
+                  with open(summary_path, 'a') as f:
+                      f.write(f'## ⏭️ Market Holiday — Skipped\n**Date:** {today}\nReason: {reason}\n')
+          else:
+              print(f'Trading day confirmed: {today}')
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                  f.write('skip=false\n')
+          "
+
       - name: Run trading bot
+        if: steps.market_check.outputs.skip != 'true'
         env:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
@@ -66,22 +115,30 @@ jobs:
             python -m quant_trader.main status
           fi
 
-      - name: Commit trade ledger back to repo
-        if: always()
+      - name: Commit trade data back to repo
+        if: always() && steps.market_check.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Stage ledger and logs if they exist
+          # Stage all persistent files
           git add trade_ledger.csv 2>/dev/null || true
           git add trade_logs/ 2>/dev/null || true
           git add current_signals.json 2>/dev/null || true
+          git add bot_state.json 2>/dev/null || true
+          git add universe_cache.json 2>/dev/null || true
 
           # Only commit if there are actual changes
           if git diff --staged --quiet; then
             echo "No new trade data to commit."
           else
             git commit -m "bot: trade cycle $(date +'%Y-%m-%d %H:%M UTC') [${{ steps.mode.outputs.mode }}]"
-            git push
+            # Retry push in case of concurrent commits
+            for i in 1 2 3; do
+              git push && break
+              echo "Push failed, pulling and retrying ($i/3)..."
+              git pull --rebase
+              sleep 2
+            done
             echo "Trade data committed to repo."
           fi

@@ -154,9 +154,14 @@ Stocks must also be above their 200-day moving average (trend filter) and have R
 
 ```
 Quant Trading Bot/
-├── keys.env                 # Your Alpaca API keys
+├── keys.env                 # Your Alpaca API keys (never committed)
 ├── README.md                # This file
 ├── PROGRESS.md              # Detailed strategy documentation
+├── bot_state.json           # Persistent state (rebalance dates, peak value)
+├── trade_ledger.csv         # Append-only trade log for the financial year
+├── universe_cache.json      # 24h stock universe cache
+├── .github/workflows/
+│   └── daily_trade.yml      # GitHub Actions daily automation
 ├── quant_trader/
 │   ├── config.py            # All tunable parameters
 │   ├── alpaca_client.py     # Alpaca REST API client
@@ -164,8 +169,10 @@ Quant Trading Bot/
 │   ├── indicators.py        # Technical indicators (RSI, Bollinger, ATR, etc.)
 │   ├── strategy.py          # Multi-factor scoring and signal generation
 │   ├── backtest.py          # Historical backtesting engine
-│   ├── executor.py          # Live paper trading execution
+│   ├── executor.py          # Live paper trading execution + production safety
+│   ├── state.py             # Persistent state manager (BotState)
 │   └── main.py              # CLI entry point
+├── trade_logs/              # Per-cycle JSON logs (committed by CI)
 ```
 
 ---
@@ -180,6 +187,31 @@ Quant Trading Bot/
 
 ---
 
+## GitHub Actions (Automated Daily Trading)
+
+The bot runs automatically at **10:00 AM ET** on trading days via GitHub Actions.
+
+**Setup:** Add your Alpaca keys as repository secrets (`ALPACA_API_KEY` and `ALPACA_SECRET_KEY`) under Settings → Secrets → Actions.
+
+**What happens each day:**
+
+1. Checks if today is a trading day (skips holidays automatically)
+2. On rebalance days (~every 5 trading days): generates fresh signals, closes stale positions, opens new ones
+3. On non-rebalance days: monitors portfolio (bracket orders handle SL/TP exits)
+4. Commits trade ledger, logs, and state back to the repo
+5. Writes a rich summary visible in the Actions UI
+
+**Manual trigger:** Go to Actions → "Daily Trading Bot" → "Run workflow" and choose mode (trade, dry-run, signals, or status).
+
+**Safety features in production mode:**
+
+- **Circuit breaker** — liquidates everything if drawdown exceeds 15% from peak
+- **Consecutive error halt** — stops after 5 failed runs until manually reset
+- **Pending order dedup** — won't double-buy symbols with unfilled orders
+- **Market calendar aware** — skips holidays, saves API calls
+
+---
+
 ## Notes
 
 - This bot uses **paper trading only** — no real money is at risk
@@ -187,3 +219,4 @@ Quant Trading Bot/
 - Market data comes from Alpaca's **free IEX feed**
 - All orders are **bracket orders** with built-in stop-loss and take-profit
 - A **15% max drawdown circuit breaker** will liquidate all positions if triggered
+- State is persisted in `bot_state.json` — to reset the bot, delete this file

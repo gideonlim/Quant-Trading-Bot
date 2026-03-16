@@ -7,12 +7,19 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Output files (generated at runtime)
-# Note: trade_ledger.csv and trade_logs/ are intentionally tracked
-# so GitHub Actions can commit them back after each run
-universe_cache.json
+# Output files (generated at runtime, local only)
 current_signals.json
 backtest_equity.png
 backtest_trades.json
 backtest_metrics.json
 data_cache/
+
+# Pip requirements (auto-generated for CI caching)
+requirements.txt
+
+# NOTE: The following files are intentionally TRACKED (not ignored)
+# so GitHub Actions can persist them across stateless runs:
+#   trade_ledger.csv    — Append-only trade log for the financial year
+#   trade_logs/         — Per-cycle JSON logs
+#   bot_state.json      — Rebalance schedule, peak value, cycle count
+#   universe_cache.json — 24h stock universe cache (saves API calls)

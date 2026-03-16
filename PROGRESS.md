@@ -4,7 +4,7 @@
 
 A quantitative trading system for US equities that exploits multi-factor momentum combined with mean-reversion entry timing. Built for Alpaca paper trading with $100,000 capital. Moderate frequency — holding periods of days to weeks with rebalancing every 5 trading days.
 
-**Status: v1.0 — Core system complete. Ready for backtesting and paper trading.**
+**Status: v2.0 — Production-hardened for autonomous GitHub Actions operation.**
 
 ---
 
@@ -178,6 +178,40 @@ No external TA libraries, no Alpaca SDK. Everything is self-contained.
 
 ---
 
+## v2.0 Production Hardening (2026-03-16)
+
+The bot is now fully autonomous and can run continuously on GitHub Actions without manual intervention.
+
+### New: Persistent State Management (`state.py` + `bot_state.json`)
+Tracks rebalance dates, cycle counts, peak portfolio value, and consecutive errors across stateless CI runs. The state file is committed back to the repo after each run.
+
+### New: Rebalance Scheduling
+The executor now only performs a full rebalance every ~5 trading days (configurable via `REBALANCE_DAYS`). On non-rebalance days it runs in monitoring-only mode — bracket orders on Alpaca handle stop-loss and take-profit exits automatically.
+
+### New: Pending Orders Deduplication
+Before placing new buy orders, the executor fetches all open/pending orders from Alpaca and filters out symbols that already have unfilled orders, preventing duplicate positions.
+
+### New: Portfolio Drawdown Circuit Breaker
+Tracks a high-water mark (peak portfolio value) persistently. If portfolio drops 15%+ from peak, the bot cancels all orders and liquidates all positions. A 5% warning threshold logs early alerts.
+
+### New: Consecutive Error Guard
+If 5 or more runs fail consecutively, the bot halts and requires manual intervention (reset `consecutive_errors` in `bot_state.json` to resume).
+
+### New: Market Calendar Validation
+Before running, the bot checks the Alpaca calendar API to verify today is an actual trading day. Skips entirely on market holidays (Presidents' Day, MLK Day, etc.), saving API calls.
+
+### New: GitHub Actions Job Summary
+Each run writes a rich Markdown summary to `$GITHUB_STEP_SUMMARY` including portfolio table, current positions, top signals, and drawdown metrics — visible directly in the Actions UI.
+
+### Improved: Workflow Reliability
+- Pip dependency caching for faster installs
+- Market holiday pre-check step (skips entire job on holidays)
+- Push retry with rebase (handles concurrent commits)
+- Commits `bot_state.json` and `universe_cache.json` back to repo
+- 20-minute timeout (up from 15)
+
+---
+
 ## Next Steps / Future Improvements
 
 - [ ] Add sector-aware diversification using GICS classification
@@ -187,8 +221,8 @@ No external TA libraries, no Alpaca SDK. Everything is self-contained.
 - [ ] Add real-time monitoring dashboard (web UI)
 - [ ] Implement intraday entry timing for better execution
 - [ ] Add Monte Carlo simulation for confidence intervals
-- [ ] Deploy on a scheduler (cron) for automated daily runs
+- [ ] Add Slack/Discord notifications on circuit breaker or errors
 
 ---
 
-*Last updated: 2026-03-11*
+*Last updated: 2026-03-16*
