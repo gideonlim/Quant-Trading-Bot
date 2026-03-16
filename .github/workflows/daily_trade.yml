@@ -36,11 +36,8 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
 
-      - name: Create requirements file for caching
-        run: echo -e "pandas\nnumpy\nmatplotlib\nrequests" > requirements.txt
-
       - name: Install dependencies
-        run: pip install pandas numpy matplotlib requests
+        run: pip install -r requirements.txt
 
       - name: Determine run mode
         id: mode

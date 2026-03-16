@@ -14,9 +14,6 @@ backtest_trades.json
 backtest_metrics.json
 data_cache/
 
-# Pip requirements (auto-generated for CI caching)
-requirements.txt
-
 # NOTE: The following files are intentionally TRACKED (not ignored)
 # so GitHub Actions can persist them across stateless runs:
 #   trade_ledger.csv    — Append-only trade log for the financial year
