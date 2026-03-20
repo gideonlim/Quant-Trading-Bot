@@ -1,0 +1,35 @@
+{
+  "timestamp": "20260320_144123",
+  "summary": {
+    "status": "monitoring",
+    "portfolio_value": 98279.99,
+    "cash": -41667.19,
+    "current_positions": 22,
+    "positions": [
+      "ACGL",
+      "ATI",
+      "AXTI",
+      "BWXT",
+      "CFLT",
+      "CWAN",
+      "DVA",
+      "FRO",
+      "GE",
+      "GLW",
+      "JNJ",
+      "KMI",
+      "NYT",
+      "OMC",
+      "TJX",
+      "TPL",
+      "TRGP",
+      "VICR",
+      "VLO",
+      "WAB",
+      "WWD",
+      "XPO"
+    ],
+    "rebalance_due": false
+  },
+  "signals": []
+}
