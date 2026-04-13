@@ -42,3 +42,12 @@ date,time,symbol,side,qty,price,order_type,stop_loss,take_profit,score,reason,or
 2026-04-06,14:47:18,KEX,buy,51,135.85,bracket,129.1,149.35,0.7968,new_signal,1415ce38-9aa8-4587-83a3-8e0bcd0447b1
 2026-04-06,14:47:18,MUSA,buy,11,510.6,bracket,481.85,568.09,0.7362,new_signal,84c23e8e-4b50-434c-9e85-85a6661d5050
 2026-04-06,14:47:18,LASR,buy,38,58.2,bracket,47.98,78.64,0.9551,new_signal,7a002412-4783-47eb-b61e-7cdcd12dff69
+2026-04-13,15:17:09,XOM,buy,43,153.22,bracket,142.99,173.68,0.5111,new_signal,37e2df7b-fb37-4679-9bdc-f2d43a36a3ea
+2026-04-13,15:17:09,WBD,buy,416,27.44,bracket,26.92,28.46,0.384,new_signal,a1b09eb7-0f55-4b6d-a2ef-dff7ae53851a
+2026-04-13,15:17:09,WDC,buy,7,346.4,bracket,305.61,427.99,0.6689,new_signal,4e9aba60-8d92-41e6-83e2-6d4d22876580
+2026-04-13,15:17:09,VZ,buy,249,45.81,bracket,43.87,49.7,0.5187,new_signal,650681f6-f831-4bc2-9e9b-5efbd0bff28d
+2026-04-13,15:17:09,ELVN,buy,57,43.96,bracket,39.56,52.77,0.7393,new_signal,4b57a108-8bbc-4ef8-9f3b-b5a6b104d901
+2026-04-13,15:17:09,ANF,buy,50,93.6,bracket,85.18,110.46,0.5184,new_signal,1e8ba05f-b416-449c-b4a4-fd8279e0d804
+2026-04-13,15:17:09,KNX,buy,127,60.35,bracket,56.21,68.64,0.433,new_signal,74bfc469-98e2-4082-b4cd-3930bbb6a584
+2026-04-13,15:17:09,PSX,buy,39,161.23,bracket,149.35,184.99,0.3459,new_signal,afb9cb00-37e1-435c-9ba1-b140420084f9
+2026-04-13,15:17:09,VIST,buy,52,68.92,bracket,62.42,81.93,0.5705,new_signal,76f1c13c-6166-40e4-9c1a-bfe9f90d81de
