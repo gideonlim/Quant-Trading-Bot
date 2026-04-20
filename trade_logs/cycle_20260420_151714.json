@@ -1,0 +1,193 @@
+{
+  "timestamp": "20260420_151714",
+  "summary": {
+    "status": "executed",
+    "portfolio_value": 105095.1,
+    "cash": -53252.7,
+    "orders_closed": 18,
+    "orders_opened": 13,
+    "execution_records": 5
+  },
+  "signals": [
+    {
+      "symbol": "MRX",
+      "score": 1.229899379916788,
+      "direction": "long",
+      "momentum_fast": 0.4766131304592842,
+      "momentum_slow": 0.7515040106951871,
+      "rsi": 68.86228308761719,
+      "entry_price": 50.82,
+      "stop_loss": 47.28,
+      "take_profit": 57.91,
+      "position_pct": 0.0771
+    },
+    {
+      "symbol": "VICR",
+      "score": 1.0537838230949432,
+      "direction": "long",
+      "momentum_fast": -0.020340586565752106,
+      "momentum_slow": 2.083629746050128,
+      "rsi": 69.21512417438274,
+      "entry_price": 219.26,
+      "stop_loss": 194.83,
+      "take_profit": 268.11,
+      "position_pct": 0.0277
+    },
+    {
+      "symbol": "FTI",
+      "score": 1.0523922814380242,
+      "direction": "long",
+      "momentum_fast": 0.132679245283019,
+      "momentum_slow": 1.1025497338189973,
+      "rsi": 54.72881307838447,
+      "entry_price": 71.25,
+      "stop_loss": 66.84,
+      "take_profit": 80.08,
+      "position_pct": 0.0822
+    },
+    {
+      "symbol": "ELVN",
+      "score": 1.0396829135132388,
+      "direction": "long",
+      "momentum_fast": 0.4596935376415723,
+      "momentum_slow": 1.0142495977936106,
+      "rsi": 72.26714790906445,
+      "entry_price": 47.49,
+      "stop_loss": 43.16,
+      "take_profit": 56.14,
+      "position_pct": 0.0377
+    },
+    {
+      "symbol": "CELC",
+      "score": 0.8796469059370284,
+      "direction": "long",
+      "momentum_fast": 0.06391542816702045,
+      "momentum_slow": 1.2848864823786457,
+      "rsi": 55.7305827798723,
+      "entry_price": 120.51,
+      "stop_loss": 110.98,
+      "take_profit": 139.56,
+      "position_pct": 0.0476
+    },
+    {
+      "symbol": "SPHR",
+      "score": 0.7348181486040405,
+      "direction": "long",
+      "momentum_fast": 0.14160389898094827,
+      "momentum_slow": 1.163755458515284,
+      "rsi": 68.3671717649161,
+      "entry_price": 135.56,
+      "stop_loss": 126.64,
+      "take_profit": 153.41,
+      "position_pct": 0.0535
+    },
+    {
+      "symbol": "TRGP",
+      "score": 0.7208962527564844,
+      "direction": "long",
+      "momentum_fast": 0.004301703975943871,
+      "momentum_slow": 0.6437897327226743,
+      "rsi": 43.156821956894674,
+      "entry_price": 235.335,
+      "stop_loss": 222.89,
+      "take_profit": 260.23,
+      "position_pct": 0.1036
+    },
+    {
+      "symbol": "HBM",
+      "score": 0.7090435064648744,
+      "direction": "long",
+      "momentum_fast": 0.31167785234899337,
+      "momentum_slow": 0.41705336426914164,
+      "rsi": 63.51641649237867,
+      "entry_price": 25.47,
+      "stop_loss": 23.11,
+      "take_profit": 30.2,
+      "position_pct": 0.05
+    },
+    {
+      "symbol": "VIRT",
+      "score": 0.6428157252587186,
+      "direction": "long",
+      "momentum_fast": 0.28542561252841625,
+      "momentum_slow": 0.538391777509069,
+      "rsi": 73.56909656860324,
+      "entry_price": 50.57,
+      "stop_loss": 48.12,
+      "take_profit": 55.48,
+      "position_pct": 0.0965
+    },
+    {
+      "symbol": "ROIV",
+      "score": 0.6354667539320641,
+      "direction": "long",
+      "momentum_fast": 0.04135946772163268,
+      "momentum_slow": 0.6922852133255406,
+      "rsi": 62.85659806087122,
+      "entry_price": 29.63,
+      "stop_loss": 27.91,
+      "take_profit": 33.08,
+      "position_pct": 0.1034
+    },
+    {
+      "symbol": "PRAX",
+      "score": 0.6063607852927074,
+      "direction": "long",
+      "momentum_fast": 0.06280825364871645,
+      "momentum_slow": 0.948035176188426,
+      "rsi": 60.48571212580955,
+      "entry_price": 345.35,
+      "stop_loss": 312.39,
+      "take_profit": 411.27,
+      "position_pct": 0.0401
+    },
+    {
+      "symbol": "MRNA",
+      "score": 0.5077326177182033,
+      "direction": "long",
+      "momentum_fast": -0.031617155411214126,
+      "momentum_slow": 0.8691002949852507,
+      "rsi": 57.760361690634724,
+      "entry_price": 54.05,
+      "stop_loss": 48.63,
+      "take_profit": 64.9,
+      "position_pct": 0.0657
+    },
+    {
+      "symbol": "SBS",
+      "score": 0.502978781734558,
+      "direction": "long",
+      "momentum_fast": 0.15589092779969138,
+      "momentum_slow": 0.42074198988195644,
+      "rsi": 72.55884916911475,
+      "entry_price": 34.92,
+      "stop_loss": 33.11,
+      "take_profit": 38.54,
+      "position_pct": 0.0818
+    },
+    {
+      "symbol": "ERIC",
+      "score": 0.4730878445140891,
+      "direction": "long",
+      "momentum_fast": 0.04062229904926529,
+      "momentum_slow": 0.2700421940928268,
+      "rsi": 53.21826653743021,
+      "entry_price": 11.785,
+      "stop_loss": 11.06,
+      "take_profit": 13.23,
+      "position_pct": 0.083
+    },
+    {
+      "symbol": "MT",
+      "score": 0.4729072339587066,
+      "direction": "long",
+      "momentum_fast": 0.2259807846277022,
+      "momentum_slow": 0.5794223826714802,
+      "rsi": 62.00392775116716,
+      "entry_price": 61.815,
+      "stop_loss": 57.49,
+      "take_profit": 70.47,
+      "position_pct": 0.0501
+    }
+  ]
+}

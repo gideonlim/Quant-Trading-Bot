@@ -51,3 +51,8 @@ date,time,symbol,side,qty,price,order_type,stop_loss,take_profit,score,reason,or
 2026-04-13,15:17:09,KNX,buy,127,60.35,bracket,56.21,68.64,0.433,new_signal,74bfc469-98e2-4082-b4cd-3930bbb6a584
 2026-04-13,15:17:09,PSX,buy,39,161.23,bracket,149.35,184.99,0.3459,new_signal,afb9cb00-37e1-435c-9ba1-b140420084f9
 2026-04-13,15:17:09,VIST,buy,52,68.92,bracket,62.42,81.93,0.5705,new_signal,76f1c13c-6166-40e4-9c1a-bfe9f90d81de
+2026-04-20,15:17:13,HBM,buy,206,25.47,bracket,23.11,30.2,0.709,new_signal,1b42bb68-33b9-4e7a-974b-b59143401d79
+2026-04-20,15:17:13,MT,buy,85,61.82,bracket,57.49,70.47,0.4729,new_signal,9661ff67-fd05-49b2-94b0-4e9c314d6e9f
+2026-04-20,15:17:13,SPHR,buy,41,135.56,bracket,126.64,153.41,0.7348,new_signal,d4ebb37a-8f25-48f0-a92b-b39508076677
+2026-04-20,15:17:14,SBS,buy,246,34.92,bracket,33.11,38.54,0.503,new_signal,df3f4631-02a4-4045-80cd-0bf3004157cc
+2026-04-20,15:17:14,ROIV,buy,366,29.63,bracket,27.91,33.08,0.6355,new_signal,a54f74b2-4c1d-4ed5-8996-dd60a78cfb07
