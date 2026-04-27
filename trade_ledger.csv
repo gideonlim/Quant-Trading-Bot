@@ -56,3 +56,10 @@ date,time,symbol,side,qty,price,order_type,stop_loss,take_profit,score,reason,or
 2026-04-20,15:17:13,SPHR,buy,41,135.56,bracket,126.64,153.41,0.7348,new_signal,d4ebb37a-8f25-48f0-a92b-b39508076677
 2026-04-20,15:17:14,SBS,buy,246,34.92,bracket,33.11,38.54,0.503,new_signal,df3f4631-02a4-4045-80cd-0bf3004157cc
 2026-04-20,15:17:14,ROIV,buy,366,29.63,bracket,27.91,33.08,0.6355,new_signal,a54f74b2-4c1d-4ed5-8996-dd60a78cfb07
+2026-04-27,15:49:52,CAVA,buy,79,94.36,bracket,86.65,109.76,0.4371,new_signal,c27e367a-39ef-447e-8327-565d1c588a29
+2026-04-27,15:49:52,MRNA,buy,123,49.01,bracket,43.54,59.95,0.7945,new_signal,8e67e2cc-d36a-40c0-9a09-8982446da3b2
+2026-04-27,15:49:53,SAIA,buy,18,445.89,bracket,414.87,507.93,0.5703,new_signal,18d2689d-8719-4bc6-86cc-192f295426f1
+2026-04-27,15:49:53,CENX,buy,81,61.16,bracket,54.69,74.11,0.8202,new_signal,136da8fa-990d-4538-85a8-ab0d9d1f25b5
+2026-04-27,15:49:53,VSCO,buy,115,52.3,bracket,47.4,62.09,0.6042,new_signal,de41b76c-4a53-4a12-bbf7-aa2abf1f93a8
+2026-04-27,15:49:53,ROIV,buy,348,27.9,bracket,26.09,31.54,0.5866,new_signal,6cea4737-1af5-4431-8fd2-cdcd40dacc23
+2026-04-27,15:49:53,NKTR,buy,43,91.62,bracket,81.04,112.77,0.5625,new_signal,d5cf9de0-8c43-4ed2-85a7-ca864dcc73a5
