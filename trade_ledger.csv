@@ -63,3 +63,9 @@ date,time,symbol,side,qty,price,order_type,stop_loss,take_profit,score,reason,or
 2026-04-27,15:49:53,VSCO,buy,115,52.3,bracket,47.4,62.09,0.6042,new_signal,de41b76c-4a53-4a12-bbf7-aa2abf1f93a8
 2026-04-27,15:49:53,ROIV,buy,348,27.9,bracket,26.09,31.54,0.5866,new_signal,6cea4737-1af5-4431-8fd2-cdcd40dacc23
 2026-04-27,15:49:53,NKTR,buy,43,91.62,bracket,81.04,112.77,0.5625,new_signal,d5cf9de0-8c43-4ed2-85a7-ca864dcc73a5
+2026-05-04,16:02:11,TWST,buy,83,58.11,bracket,51.45,71.43,1.0029,new_signal,8fe61ee7-84ae-4b31-a3a6-aacfd003b5aa
+2026-05-04,16:02:11,CELC,buy,28,148.32,bracket,133.23,178.51,0.7376,new_signal,ee9065ee-d9ad-49e4-8c9c-e8e2348f1ea4
+2026-05-04,16:02:11,APG,buy,196,44.43,bracket,41.47,50.35,0.6748,new_signal,971a35e9-321c-4d1f-8914-dedda2d36f2b
+2026-05-04,16:02:11,AUGO,buy,62,81.73,bracket,71.99,101.2,1.4571,new_signal,18c45ec8-a1b2-4982-8159-335e69d47f73
+2026-05-04,16:02:11,COHU,buy,165,46.04,bracket,41.97,54.19,1.3471,new_signal,435c9247-7852-4886-8562-c13540ee63b2
+2026-05-04,16:02:11,TTMI,buy,26,154.21,bracket,133.45,195.73,1.5202,new_signal,b1864a57-c1de-475a-ba8e-e1b4d86d9dd7
