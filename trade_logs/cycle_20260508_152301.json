@@ -1,0 +1,31 @@
+{
+  "timestamp": "20260508_152301",
+  "summary": {
+    "status": "monitoring",
+    "portfolio_value": 101573.53,
+    "cash": -43427.35,
+    "current_positions": 18,
+    "positions": [
+      "ACGL",
+      "APG",
+      "ATI",
+      "AUGO",
+      "CB",
+      "CENX",
+      "CFLT",
+      "COHU",
+      "ESLT",
+      "GTLS",
+      "KNX",
+      "MRNA",
+      "PSX",
+      "ROIV",
+      "TJX",
+      "TTMI",
+      "TWST",
+      "VZ"
+    ],
+    "rebalance_due": false
+  },
+  "signals": []
+}
