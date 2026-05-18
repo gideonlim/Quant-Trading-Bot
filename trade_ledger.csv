@@ -76,3 +76,6 @@ date,time,symbol,side,qty,price,order_type,stop_loss,take_profit,score,reason,or
 2026-05-11,16:33:30,PL,buy,83,42.15,bracket,35.41,55.63,1.0055,new_signal,53dd7e0d-a712-46e2-b539-e60dc0833947
 2026-05-11,16:33:30,FTI,buy,151,71.21,bracket,66.85,79.94,0.4883,new_signal,854fc5d6-bf7b-4f3f-bcdc-db03213e2798
 2026-05-11,16:33:30,SKM,buy,276,38.99,bracket,36.16,44.65,0.302,new_signal,fd9b6a20-00d3-4553-9720-391131407325
+2026-05-18,16:47:02,TSEM,buy,16,248.9,bracket,212.42,321.86,0.8472,new_signal,5097ec42-38a0-4545-a67c-8b1dd7be52ae
+2026-05-18,16:47:02,SSRM,buy,180,31.06,bracket,27.3,38.56,0.4144,new_signal,3301072b-8d2a-462d-b1a3-976a4f3787cd
+2026-05-18,16:47:02,SOXQ,buy,104,88.38,bracket,82.37,100.39,1.275,new_signal,54ebfc8a-04a8-49f5-ab0d-e4bd39299ffb
