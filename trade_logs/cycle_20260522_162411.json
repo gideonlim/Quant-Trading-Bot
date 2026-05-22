@@ -1,0 +1,30 @@
+{
+  "timestamp": "20260522_162411",
+  "summary": {
+    "status": "monitoring",
+    "portfolio_value": 101546.74,
+    "cash": -39454.36,
+    "current_positions": 17,
+    "positions": [
+      "ACGL",
+      "ADTN",
+      "ATI",
+      "BKD",
+      "CB",
+      "CFLT",
+      "FTI",
+      "GTLS",
+      "MRNA",
+      "PL",
+      "PRAX",
+      "PSX",
+      "SOXQ",
+      "SSRM",
+      "TSEM",
+      "TTMI",
+      "VZ"
+    ],
+    "rebalance_due": false
+  },
+  "signals": []
+}
