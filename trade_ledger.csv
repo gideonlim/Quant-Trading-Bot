@@ -79,3 +79,13 @@ date,time,symbol,side,qty,price,order_type,stop_loss,take_profit,score,reason,or
 2026-05-18,16:47:02,TSEM,buy,16,248.9,bracket,212.42,321.86,0.8472,new_signal,5097ec42-38a0-4545-a67c-8b1dd7be52ae
 2026-05-18,16:47:02,SSRM,buy,180,31.06,bracket,27.3,38.56,0.4144,new_signal,3301072b-8d2a-462d-b1a3-976a4f3787cd
 2026-05-18,16:47:02,SOXQ,buy,104,88.38,bracket,82.37,100.39,1.275,new_signal,54ebfc8a-04a8-49f5-ab0d-e4bd39299ffb
+2026-05-26,17:29:39,HP,buy,147,40.38,bracket,37.59,45.98,0.2617,new_signal,a30a2409-a40c-431d-a529-37e0dc152fef
+2026-05-26,17:29:39,TKR,buy,42,126.38,bracket,118.33,142.46,0.1232,new_signal,579bbb7e-3802-41c1-aad3-cf3a2d63c8b1
+2026-05-26,17:29:39,QTUM,buy,51,157.72,bracket,150.33,172.5,0.3445,new_signal,4d03b1b9-351c-4b6e-a6d0-5b0f0fb23a76
+2026-05-26,17:29:39,MCHP,buy,62,96.92,bracket,88.94,112.87,0.3257,new_signal,8d72c336-8b0f-4b0d-bfa4-1fa054845a87
+2026-05-26,17:29:39,SOC,buy,293,14.0,bracket,12.07,17.88,1.3748,new_signal,82c4381e-ef3e-44b5-8fe0-d0a0828e2887
+2026-05-26,17:29:39,MRAM,buy,69,31.33,bracket,22.51,48.96,2.6859,new_signal,e8fa15a7-7219-471d-86b9-b707ef9020da
+2026-05-26,17:29:39,LITE,buy,3,911.12,bracket,755.05,1223.24,1.2514,new_signal,4f66cd2f-0b87-4317-a963-8bdfe04b9c9a
+2026-05-26,17:29:39,PAGP,buy,422,25.57,bracket,24.47,27.76,0.1507,new_signal,69155c8e-b421-4b0d-9cd7-d3e77168ebc0
+2026-05-26,17:29:39,KO,buy,134,80.31,bracket,77.93,85.06,0.1333,new_signal,5935194b-f9f6-4a5f-927a-32e31f7e65b8
+2026-05-26,17:29:39,CVS,buy,77,91.15,bracket,86.68,100.08,0.1628,new_signal,68913550-db61-4628-a342-f6ab291a7f39
