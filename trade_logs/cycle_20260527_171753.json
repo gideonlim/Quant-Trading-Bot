@@ -1,0 +1,35 @@
+{
+  "timestamp": "20260527_171753",
+  "summary": {
+    "status": "monitoring",
+    "portfolio_value": 102085.79,
+    "cash": -67802.07,
+    "current_positions": 22,
+    "positions": [
+      "ACGL",
+      "BKD",
+      "CB",
+      "CFLT",
+      "CVS",
+      "GTLS",
+      "HP",
+      "KO",
+      "LITE",
+      "MCHP",
+      "MRAM",
+      "MRNA",
+      "PAGP",
+      "PL",
+      "PRAX",
+      "PSX",
+      "QTUM",
+      "SOC",
+      "SSRM",
+      "TKR",
+      "TSEM",
+      "VZ"
+    ],
+    "rebalance_due": false
+  },
+  "signals": []
+}
