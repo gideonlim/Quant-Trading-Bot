@@ -1,0 +1,31 @@
+{
+  "timestamp": "20260601_191929",
+  "summary": {
+    "status": "monitoring",
+    "portfolio_value": 98459.51,
+    "cash": -28950.74,
+    "current_positions": 18,
+    "positions": [
+      "BKD",
+      "CFLT",
+      "CVS",
+      "GTLS",
+      "KO",
+      "LITE",
+      "MCHP",
+      "MRAM",
+      "MRNA",
+      "PL",
+      "PRAX",
+      "PSX",
+      "QTUM",
+      "SOC",
+      "SSRM",
+      "TKR",
+      "TSEM",
+      "VZ"
+    ],
+    "rebalance_due": false
+  },
+  "signals": []
+}
