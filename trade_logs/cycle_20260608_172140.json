@@ -1,0 +1,32 @@
+{
+  "timestamp": "20260608_172140",
+  "summary": {
+    "status": "monitoring",
+    "portfolio_value": 91264.3,
+    "cash": -30242.66,
+    "current_positions": 19,
+    "positions": [
+      "AAON",
+      "AEHR",
+      "ALAB",
+      "AXTI",
+      "CFLT",
+      "CVS",
+      "FLY",
+      "GFS",
+      "GOOG",
+      "GOOGL",
+      "GTLS",
+      "LITE",
+      "MRAM",
+      "MRNA",
+      "QTUM",
+      "SOC",
+      "TKR",
+      "TSEM",
+      "VZ"
+    ],
+    "rebalance_due": false
+  },
+  "signals": []
+}
